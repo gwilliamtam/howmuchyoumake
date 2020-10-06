@@ -29,9 +29,9 @@
                 <small>Please enter the amount in US dollars.</small>
             </div>
             <input type="hidden" id="menu-coin" value="dollar">
-            <img src="/images/dollar.png" class="menu-coin" new-type="dollar">
-            <img src="/images/quarter1.png" class="menu-coin" new-type="quarter">
-            <img src="/images/cent.png" class="menu-coin" new-type="cent">
+            <img src="images/dollar.png" class="menu-coin" new-type="dollar">
+            <img src="images/quarter1.png" class="menu-coin" new-type="quarter">
+            <img src="images/cent.png" class="menu-coin" new-type="cent">
             <br>
             <small>Select a coin</small><br>
             <br>
