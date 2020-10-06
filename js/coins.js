@@ -8,7 +8,7 @@ class Coins
         this._interval = null;
         this._coin = 'dollar';
         this._image = null;
-        this._coinImageFile = '/images/dollar.png';
+        this._coinImageFile = 'images/dollar.png';
         this._sound = new Audio("sound.wav"); // buffers automatically when created
     }
 
@@ -56,13 +56,13 @@ class Coins
      setCoinImage()
      {
          if (this._coin == 'cent') {
-             this._coinImageFile = '/images/cent.png';
+             this._coinImageFile = 'images/cent.png';
          }
          if (this._coin == 'quarter') {
-             this._coinImageFile = '/images/quarter1.png';
+             this._coinImageFile = 'images/quarter1.png';
          }
          if (this._coin == 'dollar') {
-             this._coinImageFile = '/images/dollar.png';
+             this._coinImageFile = 'images/dollar.png';
          }
          console.log(this._coinImageFile);
          $('.coin').attr('src',this._coinImageFile);
