@@ -36,6 +36,27 @@
             <small>Select a coin</small><br>
             <br>
             <button class="btn btn-primary" id="message"></button>
+            <br>
+            <div class="form-group">
+                <label for="template">Templates</label>
+                <select class="form-control" id="template">
+                    <option readonly>Templates</option>
+                    <?php
+                    $templates = [
+                        'US Senator' => '476',
+                        'US Supreme Court Judge' => '731',
+                        'US President' => '1095',
+                        'Sean Hannity' => '98630',
+                        'Steve Harvey' => '123287',
+                        'Bill Gates' => '10959000',
+                        'Elon Musk' => '800000000',
+                        'Jeff Bezos' => '321000000',
+                    ];
+                    foreach ($templates as $name => $value) {
+                        echo "<option value='" . $value * 365 . "'>$name $" . number_format($value * 365, 2, '.', ',') . "</option>";
+                    }
+                    ?>
+                </select>
         </div>
     </div>
 </div>
@@ -60,6 +81,20 @@
             $('.menu-coin').removeClass('selected');
             $(this).addClass('selected');
             $('#menu-coin').val($(this).attr('new-type'));
+            coins.incomeChange();
+        })
+
+        $('#template').on('change', function() {
+            $('#income').val($(this).val());
+            $('#period[value=8760]').attr('selected', 'selected');
+
+            $('.menu-coin').removeClass('selected');
+            let coin = 'dollar';
+            if (parseInt($('#income').val()) < 10000000) {
+                coin = 'cent';
+            }
+            $('.menu-coin[new-type="' + coin + '"').addClass('selected');
+            $('#menu-coin').val(coin);
             coins.incomeChange();
         })
 

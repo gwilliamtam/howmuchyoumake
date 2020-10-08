@@ -44,7 +44,7 @@ class Coins
          this.setCoinImage();
          let dollarsPerSecond = (factor * this._income / this._period) / 3600;
          let secondsPerDollar = 1/dollarsPerSecond;
-         let message = 'You make 1 ' + this._coin  +' every ' + secondsPerDollar + ' seconds';
+         let message = 'One ' + this._coin  +' every ' + secondsPerDollar.toFixed(2) + ' seconds';
          document.getElementById('message').innerText = message;
          let delay = 1000 * secondsPerDollar;
          this._interval = setInterval(function(){
