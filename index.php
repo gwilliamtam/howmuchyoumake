@@ -29,6 +29,7 @@
                 <small>Please enter the amount in US dollars.</small>
             </div>
             <input type="hidden" id="menu-coin" value="dollar">
+            <img src="images/goldkilo.png" class="menu-coin" new-type="goldkilo">
             <img src="images/dollar.png" class="menu-coin" new-type="dollar">
             <img src="images/quarter1.png" class="menu-coin" new-type="quarter">
             <img src="images/cent.png" class="menu-coin" new-type="cent">
@@ -89,9 +90,12 @@
             $('#period[value=8760]').attr('selected', 'selected');
 
             $('.menu-coin').removeClass('selected');
-            let coin = 'dollar';
-            if (parseInt($('#income').val()) < 10000000) {
-                coin = 'cent';
+            let coin = 'cent';
+            if (parseInt($('#income').val()) > 10000000) {
+                coin = 'dollar';
+            }
+            if (parseInt($('#income').val()) > 1000000000) {
+                coin = 'goldkilo';
             }
             $('.menu-coin[new-type="' + coin + '"').addClass('selected');
             $('#menu-coin').val(coin);

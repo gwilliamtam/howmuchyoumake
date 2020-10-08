@@ -32,6 +32,9 @@ class Coins
          this._period = $('#period').val();
          this._coin = $('#menu-coin').val();
          let factor = 1;
+         if (this._coin == 'goldkilo') {
+             factor = 1/60900;
+         }
          if (this._coin == 'cent') {
              factor = 100;
          }
@@ -41,12 +44,14 @@ class Coins
          if (this._coin == 'dollar') {
              factor = 1;
          }
+         console.log(factor);
          this.setCoinImage();
          let dollarsPerSecond = (factor * this._income / this._period) / 3600;
          let secondsPerDollar = 1/dollarsPerSecond;
-         let message = 'One ' + this._coin  +' every ' + secondsPerDollar.toFixed(2) + ' seconds';
+         let message = 'One ' + this._coin  +' every ' + secondsPerDollar.toFixed(6) + ' seconds';
          document.getElementById('message').innerText = message;
          let delay = 1000 * secondsPerDollar;
+         coins.createCoin();
          this._interval = setInterval(function(){
              coins.createCoin();
              // this._sound.play();
@@ -55,6 +60,9 @@ class Coins
 
      setCoinImage()
      {
+         if (this._coin == 'goldkilo') {
+             this._coinImageFile = 'images/goldkilo.png';
+         }
          if (this._coin == 'cent') {
              this._coinImageFile = 'images/cent.png';
          }
